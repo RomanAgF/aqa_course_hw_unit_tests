@@ -4,3 +4,8 @@
 n + nn + nnn, где n не перемножаются, а конкатенируются
 
 */
+
+let n = Math.floor(Math.random() * 9) + 1;
+console.log(n)
+sum = n + Number(`${n}${n}`) + Number(`${n}${n}${n}`);
+console.log(sum);
