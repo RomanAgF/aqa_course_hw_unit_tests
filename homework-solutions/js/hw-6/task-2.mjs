@@ -1,19 +1,31 @@
-/*
-  У вас есть массив названий пицц вашего конкурента.
-  Создайте скрипт с циклом, который будет проверять ваш набор названий пицц (массив) 
-  и набор названий пицц конкурента (массив), пицц которых нет у конкурента присвойте в переменную "resultUnique" (массив).
-  Если все ваши пиццы есть у конкурента результатом будет "null" присвойте в переменную "resultNull".
+const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
+const myPizzasT1 = ['Peperoni', 'Margherita', 'Diablo', 'Vegetarian'];
+const myPizzasT2 = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
 
-  Скрипт не должен зависеть от регистра, в котором указаны названия пицц у вас и конкурента
-  Воспользуйтесь наборами пицц, что приведены ниже.
+// Находим уникальные пиццы T1
+const uniqueT1 = [];
+for (let pizza of myPizzasT1) {
+    if (!competitorPizzas.includes(pizza)) {
+        uniqueT1.push(pizza);
+    }
+}
 
-  Пиццы:
-  const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai']
-  const myPizzasT1 = ['Peperoni', 'Margherita', 'Diablo', 'Vegetarian'];
-  const myPizzasT2 = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
-*/
+// Находим уникальные пиццы T2
+const uniqueT2 = [];
+for (let pizza of myPizzasT2) {
+    if (!competitorPizzas.includes(pizza)) {
+        uniqueT2.push(pizza);
+    }
+}
 
-let resultUnique;
-let resultNull;
+// Результат
+const resultUnique = uniqueT1.length > 0 ? uniqueT1 : uniqueT2.length > 0 ? uniqueT2 : null;
+const resultNull = resultUnique ? "имеются уникальные пиццы" : null;
 
-export { resultNull, resultUnique };
+// Добавляем вывод для проверки
+console.log('---', 'ИТОГ', '---');
+console.log('resultUnique:', resultUnique);
+console.log('resultNull:', resultNull);
+console.log('🎯 Найдено', uniqueT1.length, 'уникальных пицц T1');
+
+// export { resultNull, resultUnique };
