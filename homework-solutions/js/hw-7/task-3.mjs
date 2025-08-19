@@ -9,7 +9,24 @@
 */
 
 function digitalRoot(number) {
-  // Ваш код
+  console.log(`Текущее число: ${number}`);
+  
+  // Базовый случай: если число однозначное
+  if (number <= 9) {
+    console.log(`Результат: ${number}`);
+    return number;
+  }
+  
+  // Складываем цифры
+  const sum = number
+    .toString()
+    .split('')
+    .reduce((acc, digit) => acc + parseInt(digit), 0);
+  
+  console.log(`Сумма цифр: ${sum}`);
+  
+  // Рекурсивный вызов
+  return digitalRoot(sum);
 }
 
 export { digitalRoot };
